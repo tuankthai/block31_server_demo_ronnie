@@ -1,6 +1,7 @@
 const express = require("express");
 
 const pokemonData = require("./database.json")
+const strangerData = require("./strangerDB.json")
 const cors = require('cors');      //cross origin resource sharing. allows front end comm to backend
 
 const PORT = 8080;
@@ -23,6 +24,12 @@ app.get("/all-pokemons", (req, res) => {
 app.get('/hello', (req, res) => {
     res.json('hi')
 })
+
+app.get("/all-strangers", (req, res) => {
+    // res.send(JSON.stringify(strangerData))
+    res.json(strangerData)
+});
+
 
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT} successsfully`)
